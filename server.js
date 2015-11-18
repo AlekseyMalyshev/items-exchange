@@ -4,14 +4,15 @@
 let express = require('express');
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
+let session = require('express-session');
+let passport = require('passport');
+let LocalStrategy = require('passport-local').Strategy;
 
-let messageApi = require('./routes/messages');
-let userApi = require('./routes/users');
-
+let api = require('./routes/api');
 let index = require('./routes/index');
 
+var passportSupport = require('./passport-support');
 
 let database = process.env.MONGOLAB_URI || 'mongodb://localhost/profileEditor';
 console.log('Connecting to mongodb: ', database);
@@ -25,10 +26,18 @@ app.use(express.static('bower_components'));
 app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(session({secret: 'top secret', resave: false, saveUninitialized: true}));
 
-app.use('/api/messages', messageApi);
-app.use('/api/users', userApi);
+passport.use(new LocalStrategy(passportSupport.strategy));
+passport.serializeUser(passportSupport.serialize);
+passport.deserializeUser(passportSupport.deserialize);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/', routes(passport)); // <-----
+
+app.use('/api/user', api);
 
 app.use('/', index);
 
