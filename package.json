@@ -1,0 +1,32 @@
+{
+  "name": "items-exchange",
+  "version": "1.0.0",
+  "description": "Items Exchange",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlekseyMalyshev/message-board.git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "5.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
+    "bower": "^1.6.5",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-jwt": "^3.3.0",
+    "jade": "^1.11.0",
+    "jwt-simple": "^0.3.1",
+    "mongoose": "^4.2.5",
+    "morgan": "^1.6.1"
+  }
+}
