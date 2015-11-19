@@ -234,11 +234,11 @@ function offerItem(event) {
   event.preventDefault();
 
   var offer = {};
-  offer.to = ;
+  offer.to = '';
   offer.for = event.target.id.substring(3);
-  offer.offer = ;
+  offer.offer = '';
   offer.comment = $('input#comment').val();
-
+return;
   $.ajax({
     method: 'POST',
     url: '/api/user/offer',
