@@ -1,8 +1,27 @@
 .row
-  .col-sm-4.col-sm-offset-8
-    button.btn.btn-md.btn-default#home-profile(type='button') Profile
-    button.btn.btn-md.btn-default#home-logout(type='button') Logout
-  hr.colorgraph
+  .col-sm-12
+    .pull-right
+      button.btn.btn-md.btn-default#home-profile(type='button') Profile
+      button.btn.btn-md.btn-default#home-logout(type='button') Logout
+hr.colorgraph
+.row
+  .col-sm-4
+    h3 Your offers
+    table.table.table-striped.table-bordered.table-hover.items
+      thead
+        tr
+          th Item
+          th To
+      tbody
+  .col-sm-4.pull-right
+    h3 Offers to You
+    table.table.table-striped.table-bordered.table-hover.items
+      thead
+        tr
+          th Item
+          th From
+      tbody
+hr.colorgraph
 .row
   .col-sm-12
     h3 Your items
@@ -31,6 +50,8 @@
             td.btn-edit
               button.btn.btn-md.btn-default.home-edit(id='id_' + item._id) Edit
     button.btn.btn-md.btn-default.pull-right#home-list List Item
+hr.colorgraph
+.row
   .col-sm-12
     h3 Items for Change
     table.table.table-striped.table-bordered.table-hover.items
@@ -59,3 +80,4 @@
                   img.thumb(src=item.picture)
             td.btn-view
               button.btn.btn-md.btn-default.home-view(id='id_' + item._id) View
+.spacing

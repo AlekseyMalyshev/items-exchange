@@ -83,3 +83,8 @@ i.fa {
 img#avatar {
   max-height: 200px;
 }
+
+.spacing {
+  padding-bottom: 50px;
+}
+

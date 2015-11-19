@@ -15,7 +15,7 @@
           input.ud#location(type='text', placeholder='Location', value=item.location)
         .fields
           input.ud#picture(type='text', placeholder='Picture url', value=item.picture)
-        .fields
+        .fields.checkbox
           label
             if (item.forSale)
               input#forSale(type='checkbox', checked)
