@@ -1,4 +1,13 @@
 pre.stack {
-  background-color: #c0c0c0;
+  font: 12px/22px Monaco,Monospace !important;
+  background-image: -webkit-repeating-linear-gradient(top, #eeeeee 0px, #eeeeee 22px, #e0e0e0 22px, #e0e0e0 44px);
+  background-image:    -moz-repeating-linear-gradient(top, #eeeeee 0px, #eeeeee 22px, #e0e0e0 22px, #e0e0e0 44px);
+  background-image:     -ms-repeating-linear-gradient(top, #eeeeee 0px, #eeeeee 22px, #e0e0e0 22px, #e0e0e0 44px);
+  background-image:      -o-repeating-linear-gradient(top, #eeeeee 0px, #eeeeee 22px, #e0e0e0 22px, #e0e0e0 44px);
+  background-image:         repeating-linear-gradient(top, #eeeeee 0px, #eeeeee 22px, #e0e0e0 22px, #e0e0e0 44px);
+  border: 1px solid #e0e0e0;
 	overflow-x: scroll;
+  padding: 0px 5px 0px 5px;
+  margin: 5px;
+  display: block;
 }

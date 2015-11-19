@@ -5,8 +5,6 @@ let jwt = require('jsonwebtoken');
 let User = require('../models/user');
 
 module.exports.auth = (req, res, next) => {
-  console.log('In auth middleware');
-
   let token = req.header('X-Authenticate');
   console.log(token);
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
