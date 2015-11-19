@@ -1,13 +1,15 @@
 
 'use strict';
 
-let mongoose = require('mongoose');
 let bcrypt = require('bcrypt');
-let jwt = require('jwt-simple');
+let jwt = require('jsonwebtoken');
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+
 
 let userSchema = mongoose.Schema({
-    name: {type: String, required: true},
-    pass: {type: String, required: true},
+    username: {type: String, required: true},
+    password: {type: String, required: true},
     email: String,
     address: String,
     zipcode: String,
@@ -20,38 +22,32 @@ let userSchema = mongoose.Schema({
 
 userSchema.methods.encryptPass = function(cb) {
   bcrypt.genSalt(10, (err1, salt) => {
-    bcrypt.hash(this.pass, salt, (err2, hash) => {
+    console.log(err1);
+    console.log(salt);
+    bcrypt.hash(this.password, salt, (err2, hash) => {
       if (err1 || err2) {
         cb(err1 || err2);
       }
       else {
-        this.pass = hash;
+        this.password = hash;
         cb(null);
       }
     });
   });
 }
 
-userSchema.methods.comparePass = function(pass, cb) {
-  bcrypt.compare(pass, this.pass, (err, result) => {
-    if (!err && result) {
-      cb(err, this);
-    }
-    else {
-      cb('invalid credentials');
-    }
-  });
+userSchema.methods.validatePass = function(pass, cb) {
+  bcrypt.compare(pass, this.password, cb);
 }
 
-userSchema.methods.token = function() {
-  let payload = {
-    user: this.name,
-    _id: this._id
-  };
-  let secret = process.env.JWT_SECRET;
-  let token = jwt.encode(payload, secret);
-
-  return token;
+userSchema.methods.token = function(cb) {
+  try {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {expiresIn: 24 * 60 * 60});
+  }
+  catch (err) {
+    console.log(err);
+    return null;
+  }
 }
 
 module.exports = mongoose.model('users', userSchema);

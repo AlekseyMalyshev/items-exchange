@@ -2,6 +2,7 @@
 'use strict';
 
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 let offerSchema = mongoose.Schema({
     to: {type: Schema.Types.ObjectId, ref: 'user'},

@@ -18,16 +18,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.3.0",
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.14.1",
     "bower": "^1.6.5",
     "express": "^4.13.3",
-    "express-jwt": "^3.3.0",
-    "express-session": "^1.12.1",
     "jade": "^1.11.0",
+    "jsonwebtoken": "^5.4.1",
     "mongoose": "^4.2.5",
-    "morgan": "^1.6.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "morgan": "^1.6.1"
   }
 }

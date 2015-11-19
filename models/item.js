@@ -2,6 +2,7 @@
 'use strict';
 
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 let itemSchema = mongoose.Schema({
     owner: {type: Schema.Types.ObjectId, ref: 'items'},
