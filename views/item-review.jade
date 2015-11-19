@@ -1,0 +1,46 @@
+.row
+  .col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+    h3.text-center View Item
+    hr.colorgraph
+    form.item-offer(id='id_' + item._id, action='#', method='post')
+      fieldset
+        if item.picture
+          .fields
+            img#avatar(src=item.picture)
+
+        .fields
+          input.ud#name(type='text', placeholder='Name', value=item.name, required, autofocus, readonly)
+        .fields
+          input.ud#description(type='text', placeholder='Description', value=item.location, readonly)
+        .fields
+          input.ud#location(type='text', placeholder='Location', value=item.location, readonly)
+        .fields
+          input.ud#picture(type='text', placeholder='Picture url', value=item.picture, readonly)
+        .fields
+          label
+            if (item.forSale)
+              input#forSale(type='checkbox', checked)
+            else
+              input#forSale(type='checkbox')
+            | &nbsp; this item is for sale
+        .fields
+          p
+            if item.owner.email
+              a(href='mailto:' + item.owner.email)= item.owner.username
+            else
+              =item.owner.username  
+        .fields
+          input.ud#comment(type='text', placeholder='Enter your comment')
+        .fields
+          select.item
+            each i in items
+              option(value='id_' + i._id)=i.name
+        .fields
+          .col-sm-6
+            button.btn.btn-md.btn-primary.btn-block#item-cancel(type='button')
+              i.fa.fa-times
+              |  Cancel
+          .col-sm-6
+            button.btn.btn-md.btn-success.btn-block.confirm(type='submit')
+              i.fa.fa-check
+              |  Offer

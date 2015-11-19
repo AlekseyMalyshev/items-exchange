@@ -1,26 +1,15 @@
 doctype html
 html(lang="en")
   head
-    title Super Profile Manager
-    link(href="/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
-    link(href="/font-awesome/css/font-awesome.min.css", rel="stylesheet")
+    title Items Exchange
+    link(href="bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(href="font-awesome/css/font-awesome.min.css", rel="stylesheet")
     link(href="css/styles.css", rel="stylesheet")
   body
-    .containter
-      .col-sm-12.top
-        h2.title Items Exchange Login
-      .col-sm-12.top
-        form.form-horizontal.login
-          input(id="username", type="text", placeholder="Login", required)
-          input(id="password", type="password", placeholder="Password", required)
-          button.btn.btn-md.btn-default#login(type="submit") Login
-        button.btn.btn-md.btn-default#profile Own
-        button.btn.btn-md.btn-default#others Others
-        button.btn.btn-md.btn-default#register Register
-        hr.colorgraph
+    .containter#container
 
     include ./modal
 
-    script(src="/jquery/dist/jquery.min.js")
-    script(src="/bootstrap/dist/js/bootstrap.min.js")
+    script(src="jquery/dist/jquery.min.js")
+    script(src="bootstrap/dist/js/bootstrap.min.js")
     script(src="js/main.js")

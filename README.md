@@ -1,6 +1,10 @@
 # Items Exchange
 
-- Just basic functionality, no more fancy stuff, sorry
+## Basic Features
+
+- User authentication with bcrypt and jwtoken
+
+- token is kept in localStorage
 
 - implemented as a Single Page Application (SPA)
 

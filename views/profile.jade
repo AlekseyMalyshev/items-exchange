@@ -1,116 +1,38 @@
-extends ./layout
-
-block css
-  link(href='https://fonts.googleapis.com/css?family=Droid+Sans|Libre+Baskerville|Abril+Fatface', rel='stylesheet', type='text/css')
-  link(href='css/style.css', rel='stylesheet')
-
-block content
- html
-  body
-    .container
-      h1 Profile
-      hr
-      .row
-        // left column
-        .col-md-3
-          .text-center
-            img.avatar.img-circle(src='/images/cute_monkey.png', alt='avatar')
-            h6 Upload a different photo...
-            input.form-control(type='file')
-        // edit form column
-        .col-md-9.personal-info
-          h2 MESSAGE AREA
-          .alert.alert-info.alert-dismissable
-            a.panel-close.close(data-dismiss='alert') ×
-            i.fa.fa-coffee
-            strong  This is an alert
-            | . Your friend Mrytle says, "Hello!"
-          label Write Mrytle back!
-            input
-            input.btn.btn-default(type='reset', value='Send')
-            img#friendImage(src="/images/mrytle.png")
-            i.fa.fa-coffee
-          h3 Personal info
-         form.form-horizontal(role='form')
-            .form-group
-              label.col-lg-3.control-label First name:
-              .col-lg-8
-                input.form-control(type='text', value='Harry')
-            .form-group
-              label.col-lg-3.control-label Last name:
-              .col-lg-8
-                input.form-control(type='text', value='Larry')
-            .form-group
-              label.col-lg-3.control-label Company:
-              .col-lg-8
-                input.form-control(type='text', value='TrreLand')
-            .form-group
-              label.col-lg-3.control-label Email:
-              .col-lg-8
-                input.form-control(type='text', value='harrylarry@gmail.com')
-            .form-group
-              label.col-lg-3.control-label Hobbies:
-              .col-lg-8
-                input.form-control(type='text', value='tree climbing')
-             .form-group
-              label.col-md-3.control-label Username:
-              .col-md-8
-                input.form-control(type='text', value='username')
-            .form-group
-              label.col-md-3.control-label Password:
-              .col-md-8
-                input.form-control(type='password', value='11111122333')
-            .form-group
-              label.col-md-3.control-label Confirm password:
-              .col-md-8
-                input.form-control(type='password', placeholder='11111122333')
-            .form-group
-              label.col-md-3.control-label
-              .col-md-8
-                input.btn.btn-primary(type='button', value='Save Changes')
-                span
-                input.btn.btn-default(type='reset', value='Cancel')
-block js
-  script(src='js/main.js')
-
-
-
-//- .container
-//- .container
-//-   .row.user-box
-//-     .col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
-//-       h3.text-center Edit Profile
-//-       hr.colorgraph
-//-       form#profile(action='#', method='post')
-//-         fieldset
-//-           .fields
-//-             img#avatar(src=user.avatar)
-//-           .fields
-//-             input#name(type='text', placeholder='Name', value=user.name, required, autofocus)
-//-           .fields
-//-             input#pass(type='password', placeholder='Password', required)
-//-           .fields
-//-             input#_pass(type='password', placeholder='Password', required)
-//-           .fields
-//-             input#email(type='text', placeholder='e-mail', value=user.email)
-//-           .fields
-//-             input#address(type='text', placeholder='Address', value=user.address)
-//-           .fields
-//-             input#zipcode(type='text', placeholder='zipcode', value=user.zipcode)
-//-           .fields
-//-             input#phone(type='text', placeholder='Phone #', value=user.phone)
-//-           .fields
-//-             input#city(type='text', placeholder='City', value=user.city)
-//-           .fields
-//-             input#state(type='text', placeholder='State', value=user.state)
-//-           .fields
-//-             input#avatar(type='text', placeholder='Avatar', value=user.avatar)
-//-           .fields
-//-             .col-sm-6
-//-               button.btn.btn-md.btn-primary.btn-block(type='reset')
-//-                 i.fa.fa-times
-//-                 |  Cancel
-//-             .col-sm-6
-//-               button.btn.btn-md.btn-success.btn-block.confirm(type='submit')
-//-                 i.fa.fa-check
-//-                 |  OK
+.row
+  .col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+    h3.text-center Edit Profile
+    hr.colorgraph
+    form#profile(action='#', method='post')
+      fieldset
+        if user.avatar
+          .fields
+            img#avatar(src=user.avatar)
+        .fields
+          input.ud#username(type='text', placeholder='Name', value=user.username, required, autofocus)
+        .fields
+          input.ud#password(type='password', placeholder='Password', required)
+        .fields
+          input#_password(type='password', placeholder='Password', required)
+        .fields
+          input.ud#email(type='text', placeholder='e-mail', value=user.email)
+        .fields
+          input.ud#address(type='text', placeholder='Address', value=user.address)
+        .fields
+          input.ud#zipcode(type='text', placeholder='zipcode', value=user.zipcode)
+        .fields
+          input.ud#phone(type='text', placeholder='Phone #', value=user.phone)
+        .fields
+          input.ud#city(type='text', placeholder='City', value=user.city)
+        .fields
+          input.ud#state(type='text', placeholder='State', value=user.state)
+        .fields
+          input.ud#avatar(type='text', placeholder='Avatar url', value=user.avatar)
+        .fields
+          .col-sm-6
+            button.btn.btn-md.btn-primary.btn-block#profile-cancel(type='reset')
+              i.fa.fa-times
+              |  Cancel
+          .col-sm-6
+            button.btn.btn-md.btn-success.btn-block.confirm(type='submit')
+              i.fa.fa-check
+              |  Save

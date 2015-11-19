@@ -8,6 +8,13 @@ let mongoose = require('mongoose');
 
 let api = require('./routes/api');
 let index = require('./routes/index');
+let homepage = require('./routes/homepage');
+let login = require('./routes/login');
+let register = require('./routes/register');
+let profile = require('./routes/profile');
+let itemEdit = require('./routes/item-edit');
+let itemReview = require('./routes/item-review');
+
 let auth = require('./config/auth');
 
 let port = process.env.PORT || 3000;
@@ -27,6 +34,12 @@ app.use(auth.auth);
 
 app.use('/api/user', api);
 app.use('/', index);
+app.use('/homepage', homepage);
+app.use('/login', login);
+app.use('/register', register);
+app.use('/profile', profile);
+app.use('/item-edit', itemEdit);
+app.use('/item-review', itemReview);
 
 // error handlers
 

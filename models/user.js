@@ -16,7 +16,7 @@ let userSchema = mongoose.Schema({
     phone: String,
     city: String,
     state: String,
-    avatar: Buffer,
+    avatar: String,
     updated: {type: Date, default: Date.now},
   });
 

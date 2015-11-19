@@ -9,6 +9,7 @@ let itemSchema = mongoose.Schema({
     name: {type: String, required: true},
     description: String,
     location: String,
+    picture: String,
     forSale: Boolean,
     updated: {type: Date, default: Date.now},
   });

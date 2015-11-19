@@ -9,7 +9,6 @@ let offerSchema = mongoose.Schema({
     for: {type: Schema.Types.ObjectId, ref: 'items'},
     from: {type: Schema.Types.ObjectId, ref: 'users'},
     offer: {type: Schema.Types.ObjectId, ref: 'items'},
-    picture: Buffer,
     comment: String,
     accepted: Boolean,
     updated: {type: Date, default: Date.now},

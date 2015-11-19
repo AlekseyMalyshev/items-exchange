@@ -127,6 +127,7 @@ router.put('/me', auth.isAuth, (req, res) => {
 // req.body contains a new item
 router.post('/item', auth.isAuth, (req, res) => {
   let item = new Item(req.body);
+  console.log('item: ', item);
   item.owner = req.userId;
   item.save((err, doc) => {
     checkError(err, res, doc);
@@ -137,6 +138,7 @@ router.post('/item', auth.isAuth, (req, res) => {
 // req.body contains an existing item
 router.put('/item', auth.isAuth, (req, res) => {
   let item = new Item(req.body);
+  console.log('item: ', item);
   Item.findOneAndUpdate({_id: item._id, owner: req.userId}, item, {new: true}, (err, doc) => {
     if (err) {
       checkError(err, res, doc);
@@ -197,7 +199,7 @@ router.get('/listings', auth.isAuth, (req, res) => {
 // The user may offer more than one item
 router.post('/offer', auth.isAuth, (req, res) => {
   let offer = new Offer(req.body);
-  offer.owner = req.userId;
+  offer.from = req.userId;
   offer.save((err, doc) => {
     checkError(err, res, doc);
   });

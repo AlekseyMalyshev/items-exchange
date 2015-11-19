@@ -1,0 +1,61 @@
+.row
+  .col-sm-4.col-sm-offset-8
+    button.btn.btn-md.btn-default#home-profile(type='button') Profile
+    button.btn.btn-md.btn-default#home-logout(type='button') Logout
+  hr.colorgraph
+.row
+  .col-sm-12
+    h3 Your items
+    table.table.table-striped.table-bordered.table-hover.items
+      thead
+        tr
+          th Name
+          th Description
+          th Location
+          th Image
+          th On Sale
+          th
+      tbody
+        each item in items
+          tr
+            td.name= item.name
+            td.description= item.description
+            td.location= item.location
+            td.picture
+              if item.picture
+                a(href=item.picture)
+                  img.thumb(src=item.picture)
+            td.onsale
+              if item.forSale
+                i.fa &#xf0d6;
+            td.btn-edit
+              button.btn.btn-md.btn-default.home-edit(id='id_' + item._id) Edit
+    button.btn.btn-md.btn-default.pull-right#home-list List Item
+  .col-sm-12
+    h3 Items for Change
+    table.table.table-striped.table-bordered.table-hover.items
+      thead
+        tr
+          th Owner
+          th Name
+          th Description
+          th Location
+          th Image
+          th
+      tbody
+        each item in listings
+          tr
+            td.owner
+              if item.owner.email
+                a(href='mailto:' + item.owner.email)= item.owner.username
+              else
+                =item.owner.username
+            td.name= item.name
+            td.description= item.description
+            td.location= item.location
+            td.picture
+              if item.picture
+                a(href=item.picture)
+                  img.thumb(src=item.picture)
+            td.btn-view
+              button.btn.btn-md.btn-default.home-view(id='id_' + item._id) View
