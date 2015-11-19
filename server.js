@@ -5,7 +5,6 @@ let express = require('express');
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
-let session = require('express-session');
 
 let api = require('./routes/api');
 let index = require('./routes/index');
