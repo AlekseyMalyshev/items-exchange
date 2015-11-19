@@ -25,7 +25,7 @@ function init() {
   $('div#container').on('submit', 'form#profile', saveProfile);
   $('div#container').on('submit', 'form.item-edit', saveItem);
   $('div#container').on('submit', 'form#item-new', newItem);
-  $('div#container').on('submit', 'form.item-offer', offerItem);
+  $('div#container').on('submit', 'form#item-offer', offerItem);
 
   initUser();
 }
@@ -234,18 +234,19 @@ function offerItem(event) {
   event.preventDefault();
 
   var offer = {};
-  offer.to = '';
-  offer.for = event.target.id.substring(3);
-  offer.offer = '';
+  offer.to = $('input#to').val();
+  offer.for = $('input#for').val();
+  offer.offer = $('select.item').val().substring(3);
   offer.comment = $('input#comment').val();
-return;
+  console.log('offer', offer);
+
   $.ajax({
     method: 'POST',
     url: '/api/user/offer',
     headers: {'X-Authenticate': token},
     data: offer,
     success: function() {
-      $('h4.error').text('Your offer has been sent.');
+      $('h4.error').text('Your offer has been submitted.');
       $('div#show-error').modal();
     },
     error: showError

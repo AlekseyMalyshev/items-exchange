@@ -127,8 +127,8 @@ router.put('/me', auth.isAuth, (req, res) => {
 // req.body contains a new item
 router.post('/item', auth.isAuth, (req, res) => {
   let item = new Item(req.body);
-  console.log('item: ', item);
   item.owner = req.userId;
+  console.log('item: ', item);
   item.save((err, doc) => {
     checkError(err, res, doc);
   });
@@ -200,6 +200,7 @@ router.get('/listings', auth.isAuth, (req, res) => {
 router.post('/offer', auth.isAuth, (req, res) => {
   let offer = new Offer(req.body);
   offer.from = req.userId;
+  console.log('offer: ', offer);
   offer.save((err, doc) => {
     checkError(err, res, doc);
   });
