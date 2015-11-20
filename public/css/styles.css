@@ -1,3 +1,75 @@
+body {
+
+  background-color: #6d695c;
+background-image:
+repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-size: 70px 120px;
+  /*background-color: #82B0FF;*/
+  color: #B5D1FF;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900px;
+}
+
+h1 {
+  font-family: 'Princess Sofia', cursive;
+  /*margin-bottom: 20px;*/
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+  border: 3px solid #544B38;
+}
+
+table.items img.thumb {
+  text-align: center;
+}
+
+a {
+  color: #544B38;
+}
+
+.table-bordered img, tr {
+  border: 3px solid #544B38;
+}
+
+thead {
+  border: 3px solid #544B38;
+}
+
+.thumb {
+  text-align: center;
+}
+
+input {
+  border: 3px solid #544B38;
+  color: #5E81B8;
+}
+
+.btn {
+  background-color: #B5D1FF;
+  border: 3px solid #544B38;
+  color: #544B38;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #7D7052;
+  border: 3px solid #B5D1FF;
+  color: #B5D1FF;
+}
+
+th {
+  background-color: #7D7052;
+  border: 3px solid #544B38;
+}
+
+td {
+  background-color: #5E81B8;
+  border: 3px solid #544B38;
+}
+
 div#container {
   margin-top: 30px;
   margin-right: auto;
