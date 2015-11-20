@@ -87,6 +87,10 @@ div.fields>input {
   width: 100%;
 }
 
+button#home-list {
+  margin-top: 15px;
+}
+
 i.fa {
   font-size: 22px;
 }
