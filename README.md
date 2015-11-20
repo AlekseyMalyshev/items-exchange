@@ -6,9 +6,7 @@
 
 - token is kept in localStorage
 
-- implemented as a Single Page Application (SPA), no route howeve, back button will move you away
-
-- implemented other profiles view and message backend support, but did not have tie to finish it
+- implemented as a Single Page Application (SPA), no route however, back button will move you away
 
 ## Installation
 
@@ -19,3 +17,5 @@ then `node server.js`
 ## Link to Heroku
 
 https://blooming-coast-1478.herokuapp.com
+
+You can use a prepopulated test account as alex/test
