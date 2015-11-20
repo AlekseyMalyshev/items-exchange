@@ -1,28 +1,60 @@
 .row
   .col-sm-12
-    .pull-right
-      button.btn.btn-md.btn-default#home-profile(type='button') Profile
-      button.btn.btn-md.btn-default#home-logout(type='button') Logout
+    table.header
+      tbody
+        tr
+          td
+            h2 Your Dashboard
+          td.buttons
+            button.btn.btn-md.btn-default#home-profile(type='button') Profile
+            button.btn.btn-md.btn-default#home-logout(type='button') Logout
 hr.colorgraph
 .row
-  .col-sm-4
+  .col-sm-6
     h3 Your offers
-    table.table.table-striped.table-bordered.table-hover.items
+    table.table.table-striped.table-bordered.table-hover.bids
       thead
         tr
-          th Item
+          th You Want
+          th You Offer
           th To
-          th Status
+          th
       tbody
-  .col-sm-4.pull-right
+        each bid in bids
+          tr.bid
+            td.item= bid.for.name
+            td.item= bid.offer.name
+            td.name
+              if bid.to.email
+                a(href='mailto:' + bid.to.email)= bid.to.username
+              else
+                =bid.to.username
+            td#btn-col
+              button.btn.btn-md.btn-default.home-delete(id='id_' + bid._id) Cancel
+  .col-sm-6
     h3 Offers to You
-    table.table.table-striped.table-bordered.table-hover.items
+    table.table.table-striped.table-bordered.table-hover.offers
       thead
         tr
-          th Item
+          th They Want
+          th They Offer
           th From
-          th Status
+          th
+          th
       tbody
+        each offer in offers
+          tr.offer
+            td.item= offer.for.name
+            td.item= offer.offer.name
+            td.name
+              if offer.from.email
+                a(href='mailto:' + offer.from.email)= offer.from.username
+              else
+                =offer.from.username
+            td#btn-col
+              button.btn.btn-md.btn-default.home-accept(id='id_' + offer._id) Accept
+            td#btn-col
+              button.btn.btn-md.btn-default.home-reject(id='id_' + offer._id) Reject
 hr.colorgraph
 .row
   .col-sm-12
@@ -48,7 +80,7 @@ hr.colorgraph
             td.onsale
               if item.forSale
                 i.fa &#xf0d6;
-            td.btn-edit
+            td#btn-col
               button.btn.btn-md.btn-default.home-edit(id='id_' + item._id) Edit
     button.btn.btn-md.btn-default.pull-right#home-list List Item
 hr.colorgraph
@@ -78,6 +110,6 @@ hr.colorgraph
             td.picture
               if item.picture
                 img.thumb(src=item.picture)
-            td.btn-view
+            td#btn-col
               button.btn.btn-md.btn-default.home-view(id='id_' + item._id) View
 .spacing

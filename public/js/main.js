@@ -14,6 +14,10 @@ function init() {
   $('div#container').on('click', 'button#profile-cancel', showHomepage);
   $('div#container').on('click', 'button#item-cancel', showHomepage);
 
+  $('div#container').on('click', 'button.home-delete', deleteOffer);
+  $('div#container').on('click', 'button.item-accept', acceptOffer);
+  $('div#container').on('click', 'button.item-reject', rejectOffer);
+
   $('div#container').on('click', '#home-profile', showProfile);
   $('div#container').on('click', '#home-logout', showLogin);
   $('div#container').on('click', '#home-list', addItem);
@@ -252,3 +256,57 @@ function offerItem(event) {
     error: showError
   });
 }
+
+function deleteOffer(event) {
+  event.preventDefault();
+  var offerId = event.target.id.substring(3);
+
+  $.ajax({
+    method: 'DELETE',
+    url: '/api/user/offer/' + offerId,
+    headers: {'X-Authenticate': token},
+    success: function() {
+      $(event.target).parents('tr.bid').remove();
+      $('h4.error').text('Your offer has been deleted.');
+      $('div#show-error').modal();
+    },
+    error: showError
+  });
+}
+
+function acceptOffer(event) {
+  event.preventDefault();
+  var offerId = event.target.id.substring(3);
+
+  $.ajax({
+    method: 'POST',
+    url: '/api/user/offer/accept',
+    headers: {'X-Authenticate': token},
+    data: {id: offerId},
+    success: function() {
+      $('h4.error').text('You accepted the offer.');
+      $('div#show-error').modal();
+      showHomepage();
+    },
+    error: showError
+  });
+}
+
+function rejectOffer(event) {
+  event.preventDefault();
+  var offerId = event.target.id.substring(3);
+
+  $.ajax({
+    method: 'POST',
+    url: '/api/user/offer/reject',
+    headers: {'X-Authenticate': token},
+    data: {id: offerId},
+    success: function() {
+      $(event.target).parents('tr.offer').remove();
+      $('h4.error').text('You rejected the offer.');
+      $('div#show-error').modal();
+    },
+    error: showError
+  });
+}
+

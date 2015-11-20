@@ -231,8 +231,8 @@ router.get('/offers', auth.isAuth, (req, res) => {
 // The user may request a list of all offers to him
 router.get('/offers/tome', auth.isAuth, (req, res) => {
   Offer.find({to: req.userId}, null, {sort: '-updated'})
-    .populate('for offer')
     .populate('from', 'username email avatar')
+    .populate('for offer')
     .exec((err, items) => {
     if (!err) {
       res.send(items);
