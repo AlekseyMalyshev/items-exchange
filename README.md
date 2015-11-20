@@ -6,7 +6,7 @@
 
 - token is kept in localStorage
 
-- implemented as a Single Page Application (SPA)
+- implemented as a Single Page Application (SPA), no route howeve, back button will move you away
 
 - implemented other profiles view and message backend support, but did not have tie to finish it
 
