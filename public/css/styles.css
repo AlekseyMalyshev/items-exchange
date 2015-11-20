@@ -1,6 +1,33 @@
-table.header {
-  width: 100%;
-  text-align: right;
+body {
+
+  background-color: #6d695c;
+  background-image:
+            repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+            repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+            linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+            linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+  /*background-color: #82B0FF;*/
+  color: #B5D1FF;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900px;
+}
+
+h1 {
+  font-family: 'Princess Sofia', cursive;
+}
+
+.table-bordered>tbody>tr>td,
+.table-bordered>tbody>tr>th,
+.table-bordered>tfoot>tr>td,
+.table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th {
+  border: 3px solid #544B38;
+}
+
+ul>li {
+  display: inline-block;
 }
 
 div#container {
@@ -10,10 +37,6 @@ div#container {
 
 hr.separator {
   margin-bottom: 5px;
-}
-
-div.home-buttons {
-  display: inline-block;
 }
 
 table.bids td.item {
@@ -96,6 +119,51 @@ select.item {
   width: 100%;
   outline: none;
   -webkit-appearance: none;
+}
+
+img.thumb {
+  text-align: center;
+}
+
+a {
+  color: #a89670;
+}
+
+.table-bordered img,
+tr {
+  border: 3px solid #544B38;
+}
+
+thead {
+  border: 3px solid #544B38;
+}
+
+input {
+  border: 3px solid #544B38;
+  color: #5E81B8;
+}
+
+.btn {
+  background-color: #B5D1FF;
+  border: 3px solid #544B38;
+  color: #544B38;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #7D7052;
+  border: 3px solid #B5D1FF;
+  color: #B5D1FF;
+}
+
+th {
+  background-color: #7D7052;
+  border: 3px solid #544B38;
+}
+
+td {
+  background-color: #5E81B8;
+  border: 3px solid #544B38;
 }
 
 div.fields>input {

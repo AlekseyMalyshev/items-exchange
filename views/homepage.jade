@@ -1,13 +1,13 @@
 .row
   .col-sm-12
-    table.header
-      tbody
-        tr
-          td
-            h2 Your Dashboard
-          td.buttons
-            button.btn.btn-md.btn-default#home-profile(type='button') Profile
-            button.btn.btn-md.btn-default#home-logout(type='button') Logout
+    ul.nav.nav-pills
+      li
+        h1.header Your Dashboard
+      li.spacer
+        &nbsp;
+      li.pull-right
+        button.btn.btn-md.btn-default#home-profile(type='button') Profile
+        button.btn.btn-md.btn-default#home-logout(type='button') Logout
 hr.colorgraph
 .row
   .col-sm-6
@@ -30,7 +30,7 @@ hr.colorgraph
               else
                 =bid.to.username
             td#btn-col
-              button.btn.btn-md.btn-default.home-delete(id='id_' + bid._id) Cancel
+              button.btn.btn-sm.btn-default.home-delete(id='id_' + bid._id) Cancel
   .col-sm-6
     h3 Offers to You
     table.table.table-striped.table-bordered.table-hover.offers
@@ -52,9 +52,9 @@ hr.colorgraph
               else
                 =offer.from.username
             td#btn-col
-              button.btn.btn-md.btn-default.home-accept(id='id_' + offer._id) Accept
+              button.btn.btn-sm.btn-default.home-accept(id='id_' + offer._id) Accept
             td#btn-col
-              button.btn.btn-md.btn-default.home-reject(id='id_' + offer._id) Reject
+              button.btn.btn-sm.btn-default.home-reject(id='id_' + offer._id) Reject
 hr.colorgraph
 .row
   .col-sm-12
@@ -81,7 +81,7 @@ hr.colorgraph
               if item.forSale
                 i.fa &#xf0d6;
             td#btn-col
-              button.btn.btn-md.btn-default.home-edit(id='id_' + item._id) Edit
+              button.btn.btn-sm.btn-default.home-edit(id='id_' + item._id) Edit
     button.btn.btn-md.btn-default.pull-right#home-list List Item
 hr.colorgraph
 .row
@@ -111,5 +111,5 @@ hr.colorgraph
               if item.picture
                 img.thumb(src=item.picture)
             td#btn-col
-              button.btn.btn-md.btn-default.home-view(id='id_' + item._id) View
+              button.btn.btn-sm.btn-default.home-view(id='id_' + item._id) View
 .spacing
